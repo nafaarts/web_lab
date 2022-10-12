@@ -1,0 +1,22 @@
+POST https://aida.nafaarts.com/api/laporan HTTP/1.1
+content-type: application/json
+
+{
+    "pelapor": {
+        "nama": "Naufal",
+        "nim": "2019302009",
+        "email": "naufal@nafaarts.com"
+    },
+    "barang": [
+        {
+            "barang_id": 34,
+            "kondisi": "baik",
+            "keterangan": "ini keterangan"
+        },
+        {
+            "barang_id": 39,
+            "kondisi": "hilang",
+            "keterangan": "ini keterangan untuk 2"
+        }
+    ]
+}
