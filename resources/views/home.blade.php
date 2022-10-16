@@ -80,7 +80,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -99,11 +99,9 @@
                                     <td>{{ $item->jenis_barang->nama_barang }}</td>
                                     <td>{{ $item->nomor_barang }}</td>
                                     <td>{{ $item->kondisi }}</td>
-                                    <td>
-                                        <a href="" class="btn btn-sm btn-primary">
-                                            <i class="fas fa-fw fa-eye"></i> Lihat
-                                        </a>
-                                    </td>
+                                    <td><a
+                                            href="{{ route('laboratorium.barang.show', [$item->laboratorium_id, $item->id]) }}"><i
+                                                class="fas fa-fw fa-eye"></i> Lihat</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -126,7 +124,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -145,11 +143,9 @@
                                     <td>{{ $item->jenis_barang->nama_barang }}</td>
                                     <td>{{ $item->nomor_barang }}</td>
                                     <td>{{ $item->kondisi }}</td>
-                                    <td>
-                                        <a href="" class="btn btn-sm btn-primary">
-                                            <i class="fas fa-fw fa-eye"></i> Lihat
-                                        </a>
-                                    </td>
+                                    <td><a
+                                            href="{{ route('laboratorium.barang.show', [$item->laboratorium_id, $item->id]) }}"><i
+                                                class="fas fa-fw fa-eye"></i> Lihat</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -157,7 +153,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>

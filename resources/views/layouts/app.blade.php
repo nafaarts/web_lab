@@ -52,10 +52,18 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
+                        <div class="d-flex align-items-center">
+                            <a href="{{ route('laporan.index') }}" class="btn p-0 pt-2 position-relative">
+                                <h3><i class="fas fa-fw fa-bell"></i></h3>
+                                <span id="notification-badge" style="right: -5px"
+                                    class="position-absolute start-100 top-0 translate-middle badge rounded-pill bg-danger text-white"></span>
+                            </a>
+                        </div>
+
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}
@@ -150,6 +158,22 @@
 
     <!-- Page level custom scripts -->
     @yield('custom_scripts')
+
+    <script>
+        function getNotification() {
+            const notificationBadge = document.getElementById("notification-badge")
+
+            fetch('/api/notification').then(response => response.json()).then(data => {
+                if (data != 0) {
+                    notificationBadge.textContent = data
+                }
+            });
+        }
+
+        setInterval(() => {
+            getNotification()
+        }, 1000);
+    </script>
 
 </body>
 

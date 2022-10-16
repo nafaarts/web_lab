@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Auth::routes([
     'register' => false,
-    'reset' => false,
+    'reset' => true,
 ]);
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
