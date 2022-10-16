@@ -57,6 +57,9 @@
                         <tr>
                             <th>No.</th>
                             <th>Nama Barang</th>
+                            <th>Baik</th>
+                            <th>Rusak</th>
+                            <th>Hilang</th>
                             <th>Jumlah</th>
                             <th>Aksi</th>
                         </tr>
@@ -66,6 +69,9 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->jenis_barang->nama_barang }}</td>
+                                <td>{{ $item->jumlah['baik'] }}</td>
+                                <td>{{ $item->jumlah['rusak'] }}</td>
+                                <td>{{ $item->jumlah['hilang'] }}</td>
                                 <td>{{ $item->total }}</td>
                                 <td>
                                     <div>

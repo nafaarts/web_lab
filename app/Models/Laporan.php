@@ -25,4 +25,9 @@ class Laporan extends Model
     {
         return $this->hasMany(DetailBarang::class, 'laporan_id');
     }
+
+    function getTahunAjaranSemester()
+    {
+        return $this->barang()->first();
+    }
 }

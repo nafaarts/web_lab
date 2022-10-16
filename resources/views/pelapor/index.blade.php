@@ -38,7 +38,7 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->nim }}</td>
                                 <td>{{ $item->email }}</td>
-                                <td>{{ $item->updated_at->diffForhumans() }}</td>
+                                <td>{{ $item->updated_at }}</td>
                                 <td>
                                     <form action="{{ route('pelapor.destroy', $item) }}" method="POST" class="d-inline"
                                         onsubmit="return confirm('yakin dihapus?')">

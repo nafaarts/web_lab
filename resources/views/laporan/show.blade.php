@@ -40,9 +40,19 @@
                             <th>{{ $laporan->pelapor->email }}</th>
                         </tr>
                         <tr>
+                            <td>Tahun Ajaran</td>
+                            <td>:</td>
+                            <th>{{ $laporan->getTahunAjaranSemester()?->tahun_ajaran }}</th>
+                        </tr>
+                        <tr>
+                            <td>Semester</td>
+                            <td>:</td>
+                            <th>{{ $laporan->getTahunAjaranSemester()?->semester }}</th>
+                        </tr>
+                        <tr>
                             <td>Tanggal</td>
                             <td>:</td>
-                            <th>{{ $laporan->created_at->diffForhumans() }}</th>
+                            <th>{{ $laporan->created_at }}</th>
                         </tr>
                     </table>
                 </div>

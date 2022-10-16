@@ -66,6 +66,17 @@ class LaboratoriumController extends Controller
     {
         $jenis_barang = JenisBarang::all();
         $barang = $laboratorium->barang()->groupBy('jenis_barang_id')->get(['id', 'jenis_barang_id', DB::raw('count(*) as total')]);
+        $barang->map(function ($item) use ($laboratorium) {
+            $data = $laboratorium->barang()->where('jenis_barang_id', $item->jenis_barang_id)->get()->map(function ($item) {
+                return $item->kondisi('kondisi') ?? ['kondisi' => 'baik'];
+            });
+            $item->jumlah = [
+                'baik' => collect($data)->where('kondisi', 'baik')->count(),
+                'rusak' => collect($data)->where('kondisi', 'rusak')->count(),
+                'hilang' => collect($data)->where('kondisi', 'hilang')->count(),
+            ];
+            return $item;
+        });
         return view('laboratorium.detail', compact('laboratorium', 'jenis_barang', 'barang'));
     }
 

@@ -25,6 +25,8 @@
                         <tr>
                             <th>No.</th>
                             <th>Pelapor</th>
+                            <th>Tahun Ajaran</th>
+                            <th>Semester</th>
                             <th>Waktu</th>
                             <th>Aksi</th>
                         </tr>
@@ -34,7 +36,9 @@
                             <tr class="{{ $item->di_lihat == 0 ? 'table-warning' : '' }}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td><b>{{ $item->pelapor->nama }}</b></td>
-                                <td>{{ $item->created_at->diffForhumans() }}</td>
+                                <td>{{ $item->getTahunAjaranSemester()?->tahun_ajaran ?? '-' }}</td>
+                                <td>{{ $item->getTahunAjaranSemester()?->semester ?? '-' }}</td>
+                                <td>{{ $item->created_at }}</td>
                                 <td>
                                     <a href="{{ route('laporan.show', $item) }}" class="btn py-0 btn-info">
                                         <i class="fas fa-fw fa-eye"></i> Lihat
