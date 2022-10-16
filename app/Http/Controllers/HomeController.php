@@ -39,8 +39,10 @@ class HomeController extends Controller
         $jumlah_pelapor = Pelapor::count();
         $total_barang = $databarang->count();
         $total_barang_baik = $databarang->where('kondisi', 'baik')->count();
-        $total_barang_rusak = $databarang->where('kondisi', 'rusak')->count();
-        $total_barang_hilang = $databarang->where('kondisi', 'hilang')->count();
+        $total_barang_rusak = collect($databarang)->where('kondisi', 'rusak')->all();
+
+        // return $total_barang_rusak;
+        $total_barang_hilang = collect($databarang)->where('kondisi', 'hilang')->all();
 
         return view('home', compact('jenis_barang', 'jumlah_lab', 'jumlah_pelapor', 'total_barang', 'total_barang_baik', 'total_barang_rusak', 'total_barang_hilang'));
     }
